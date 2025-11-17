@@ -39,10 +39,10 @@ public class APIandDatabases
                 Set<String> seen = new HashSet<>();
                 List<Long> populationList = new ArrayList<>();
                 
-                Pattern pattern = Pattern.compile("\"Common\"\\s*:\\s*\"([^\"]+)\"");
+                Pattern pattern = Pattern.compile("\"common\"\\s*:\\s*\"([^\"]+)\"");
                 Pattern popularionPattern = Pattern.compile("\"population\"\\s*:\\s*(\\d+)");
 
-                String[] parts = responseBody.split("\"name\"");
+                String[] parts = responseBody.split("\"name\"\\s*:\\s*");
                 for (int i = 1; i < parts.length && countryList.size() < limit; i++)
                 {
                     Matcher match = pattern.matcher(parts[i]);
@@ -99,10 +99,13 @@ public class APIandDatabases
                     sortedPopulations[i] = populations[index[i]];
                 }
 
-                System.out.println("Common names sorted alphabetically:");
-                for (int i = 0; i < sortedNames.length; i++)
-                {
-                    System.out.println(sortedNames[i] + " - population" + sortedPopulations[i]);
+                if (sortedNames.length == 0) {
+                    System.out.println("No country names were parsed from the API response. Check parsing logic or API response format.");
+                } else {
+                    System.out.println("Common names sorted alphabetically:");
+                    for (int i = 0; i < sortedNames.length; i++) {
+                        System.out.println(sortedNames[i] + " - population: " + sortedPopulations[i]);
+                    }
                 }
             }
             else
