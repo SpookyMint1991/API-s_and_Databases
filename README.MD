@@ -11,3 +11,5 @@ Features:
 * Then the Arrays are outputted to the terminal to show all the Countries and their respected Populations.
 
 This assignment has been a pain for me and I didn't have enough time to really get into it and actually fight to get it all working. I do not believe I satisfied the criteria for this assignment. But I'll except whatever grade is handed to me.
+
+It would be cool to then add a function for the user to input a countries name and get the data on the country, or to create a catalog in which the user just gives a letter and then all countries beginning with that letter will be shown. This could be expanded to also list more information like currency and languages. A GUI would also be great for this, but GUIs are the bane of my existence. So no.
